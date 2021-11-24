@@ -1,0 +1,2 @@
+(this.webpackJsonpcovid19_statistics=this.webpackJsonpcovid19_statistics||[]).push([[0],{11:function(t,c,e){"use strict";e.r(c);var n=e(1),s=e.n(n),i=e(3),o=e.n(i),r=(e(8),e(9),e(0));var a=function(){return Object(r.jsx)("div",{className:"App",children:"hello"})};o.a.render(Object(r.jsx)(s.a.StrictMode,{children:Object(r.jsx)(a,{})}),document.getElementById("root"))},8:function(t,c,e){},9:function(t,c,e){}},[[11,1,2]]]);
+//# sourceMappingURL=main.cdb42df6.chunk.js.map
