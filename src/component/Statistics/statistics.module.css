@@ -1,0 +1,51 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalTitle {
+  text-align: center;
+  margin-bottom: 38px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+}
+
+.modalList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+
+  color: #666666;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 45px;
+}
+
+.modalButton {
+  display: block;
+  margin: 0 auto;
+  width: 171px;
+  height: 49px;
+
+  font-weight: bold;
+  font-size: 24px;
+
+  border-radius: 20px;
+  border: none;
+  background: #2196f3;
+  color: #fff;
+  cursor: pointer;
+}

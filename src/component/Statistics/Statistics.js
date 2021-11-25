@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 import * as API from '../../API/API';
+import Logo from '../Header/Logo';
 import Modal from '../Modal/Modal';
+import Table from '../Table/Table';
+import Search from '../Searchbar/Searchbar';
+import s from './statistics.module.css';
 
 export default function Statistics() {
   const [country, setCountry] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [detail, setDetail] = useState([]);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     API.fetchSearch().then(res => setCountry(res.Countries));
@@ -22,43 +27,45 @@ export default function Statistics() {
     );
   };
 
+  const changeFilter = e => {
+    setFilter(e.currentTarget.value);
+  };
+
+  const getFilteredCountry = () => {
+    const filterCase = filter.toLowerCase();
+
+    return country.filter(country =>
+      country.Country.toLowerCase().includes(filterCase),
+    );
+  };
+
   return (
     <>
-      <table>
-        <thead>
-          <tr>
-            <th>№</th>
-            <th>Country</th>
-            <th>Total Confirmed</th>
-          </tr>
-        </thead>
-        <tbody>
-          {country.map((country, idx) => (
-            <tr key={country.ID}>
-              <td>{idx}</td>
-              <td onClick={getDetailInfo}>{country.Country}</td>
-              <td>{country.TotalConfirmed}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <header>
+        <Logo />
+        <Search value={filter} onHandleFilter={changeFilter} />
+      </header>
+
+      <Table country={getFilteredCountry()} info={getDetailInfo} />
 
       {showModal && (
         <Modal onClose={toggleModal}>
-          {console.log(detail.Country)}
-          <h1>{detail.Country}</h1>
-          <ul>
-            <li>
-              <p>Total Confirmed: {detail.Confirmed}</p>
+          <h1 className={s.modalTitle}>{detail.Country}</h1>
+          <ul className={s.modalList}>
+            <li className={s.items}>
+              <p className={s.name}>Total Confirmed</p>
+              <p> {detail.Confirmed}</p>
             </li>
-            <li>
-              <p>Total Deaths: {detail.Deaths}</p>
+            <li className={s.items}>
+              <p className={s.name}>Total Deaths </p>
+              <p>{detail.Deaths}</p>
             </li>
-            <li>
-              <p>Total Recovered: {detail.Recovered}</p>
+            <li className={s.items}>
+              <p className={s.name}>Total Recovered</p>
+              <p> {detail.Recovered}</p>
             </li>
           </ul>
-          <button type="button" onClick={toggleModal}>
+          <button className={s.modalButton} type="button" onClick={toggleModal}>
             Ok
           </button>
         </Modal>
