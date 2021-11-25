@@ -5,6 +5,9 @@ import Modal from '../Modal/Modal';
 import Table from '../Table/Table';
 import Search from '../Searchbar/Searchbar';
 import s from './statistics.module.css';
+import health from '../../Image/Vector.png';
+import recovered from '../../Image/recovered.png';
+import died from '../../Image/died.png';
 
 export default function Statistics() {
   const [country, setCountry] = useState([]);
@@ -53,14 +56,17 @@ export default function Statistics() {
           <h1 className={s.modalTitle}>{detail.Country}</h1>
           <ul className={s.modalList}>
             <li className={s.items}>
+              <img src={health} alt="" width="40" height="40" />
               <p className={s.name}>Total Confirmed</p>
               <p> {detail.Confirmed}</p>
             </li>
             <li className={s.items}>
+              <img src={recovered} alt="" width="40" height="40" />
               <p className={s.name}>Total Deaths </p>
               <p>{detail.Deaths}</p>
             </li>
             <li className={s.items}>
+              <img src={died} alt="" width="40" height="40" />
               <p className={s.name}>Total Recovered</p>
               <p> {detail.Recovered}</p>
             </li>

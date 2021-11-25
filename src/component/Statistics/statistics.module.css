@@ -16,7 +16,6 @@ header {
 .modalList {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   font-family: Roboto;
   font-style: normal;
