@@ -33,6 +33,10 @@ header {
   margin-bottom: 45px;
 }
 
+.item:last-child {
+  margin-bottom: 36px;
+}
+
 .modalButton {
   display: block;
   margin: 0 auto;

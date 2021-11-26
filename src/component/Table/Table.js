@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './Table.module.css';
+import './table.css';
 
-export default function Table({ country, info }) {
+export default function Table({ country, info, maxSort, minSort }) {
   return (
     <table>
       <thead>
@@ -14,7 +14,7 @@ export default function Table({ country, info }) {
       <tbody>
         {country.map((country, idx) => (
           <tr key={country.ID}>
-            <td>{idx}</td>
+            <td>{idx + 1}</td>
             <td onClick={info}>{country.Country}</td>
             <td>{country.TotalConfirmed}</td>
           </tr>

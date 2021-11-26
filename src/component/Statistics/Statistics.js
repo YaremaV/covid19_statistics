@@ -56,21 +56,22 @@ export default function Statistics() {
           <h1 className={s.modalTitle}>{detail.Country}</h1>
           <ul className={s.modalList}>
             <li className={s.items}>
-              <img src={health} alt="" width="40" height="40" />
+              <img src={health} alt="" width="30" height="26" />
               <p className={s.name}>Total Confirmed</p>
               <p> {detail.Confirmed}</p>
             </li>
             <li className={s.items}>
-              <img src={recovered} alt="" width="40" height="40" />
+              <img src={recovered} alt="" width="30" height="30" />
               <p className={s.name}>Total Deaths </p>
               <p>{detail.Deaths}</p>
             </li>
             <li className={s.items}>
-              <img src={died} alt="" width="40" height="40" />
+              <img src={died} alt="" width="22.5" height="30" />
               <p className={s.name}>Total Recovered</p>
               <p> {detail.Recovered}</p>
             </li>
           </ul>
+
           <button className={s.modalButton} type="button" onClick={toggleModal}>
             Ok
           </button>
