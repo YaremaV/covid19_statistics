@@ -25,6 +25,7 @@ export default function Statistics() {
 
   const getDetailInfo = e => {
     toggleModal();
+
     API.fetchDetails(e.target.innerText).then(res =>
       setDetail(res.slice(-1)[0]),
     );
@@ -51,24 +52,24 @@ export default function Statistics() {
 
       <Table country={getFilteredCountry()} info={getDetailInfo} />
 
-      {showModal && (
+      {showModal ? (
         <Modal onClose={toggleModal}>
-          <h1 className={s.modalTitle}>{detail.Country}</h1>
+          <h1 className={s.modalTitle}>{detail?.Country}</h1>
           <ul className={s.modalList}>
             <li className={s.items}>
               <img src={health} alt="" width="30" height="26" />
               <p className={s.name}>Total Confirmed</p>
-              <p> {detail.Confirmed}</p>
+              <p> {detail?.Confirmed}</p>
             </li>
             <li className={s.items}>
               <img src={recovered} alt="" width="30" height="30" />
               <p className={s.name}>Total Deaths </p>
-              <p>{detail.Deaths}</p>
+              <p>{detail?.Deaths}</p>
             </li>
             <li className={s.items}>
               <img src={died} alt="" width="22.5" height="30" />
               <p className={s.name}>Total Recovered</p>
-              <p> {detail.Recovered}</p>
+              <p> {detail?.Recovered}</p>
             </li>
           </ul>
 
@@ -76,6 +77,8 @@ export default function Statistics() {
             Ok
           </button>
         </Modal>
+      ) : (
+        <h2>Error</h2>
       )}
     </>
   );
